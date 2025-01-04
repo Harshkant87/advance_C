@@ -56,8 +56,24 @@ void AccessingStructsUsingPointers(){
     printf("%c\n", p->bar); // a
 }
 
+void initializeStructs(){
+    struct ex1
+    {
+        int foo;
+        char bar;
+    };
+
+    struct ex1 s = {1, 'a'};
+    struct ex1 s2 = {.foo = 2, .bar = 'b'}; // with "." operator
+    printf("%d\n", s.foo); // 1
+    printf("%c\n", s.bar); // a
+    printf("%d\n", s2.foo); // 1
+    printf("%c\n", s2.bar); // a
+}
+
 int main(){
     flexibleStructMembers();
     AccessingStructsUsingPointers();
+    initializeStructs();
     return 0;
 }
