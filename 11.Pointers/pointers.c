@@ -76,11 +76,37 @@ void constPointers(){
 
 }
 
+void pointerToPointer(){
+    int a = 10;
+    int *p = &a;
+    int **q = &p;
+    printf("a = %d\n", a); // prints 10
+    printf("*p = %d\n", *p); // prints 10
+    printf("**q = %d\n", **q); // prints 10
+
+    int A = 42;
+    int* pA = &A;
+    int** ppA = &pA;
+    int*** pppA = &ppA;
+    printf("%d\n", ***pppA); /* prints 42 */
+}
+
+void functionPointers(){
+    int add(int a, int b)
+    {
+        return a + b;
+    }
+    int (*p)(int, int) = &add;
+    printf("add(2, 3) = %d\n", p(2, 3)); // prints 5
+}
+
 int main(){
     pointerUsage();
     sizeOfPointers();
     pointersAndArray(); 
     dereferencingStructs();
+    pointerToPointer();
+    functionPointers();
 
     return 0;  
 }
